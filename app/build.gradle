@@ -1,0 +1,53 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'com.firsapplication.newsapi'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.firsapplication.newsapi"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'   // RecyclerView
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'      // Retrofit for API calls
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'    // Convert JSON to java objects
+    implementation 'com.github.bumptech.glide:glide:4.12.0'         // Load images from URLs
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0' //Glide Compiler
+    implementation 'androidx.cardview:cardview:1.0.0'               // For setting article in a box
+}
+
+
+//Step 1: Adding Dependencies
+//We needed some libraries to help with API calls and image loading.
+//
+//        Opened build.gradle (Module: app).
